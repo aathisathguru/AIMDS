@@ -1,0 +1,53 @@
+# ==============================================================================
+# AIMDS — Docker Build Context Ignore List
+# Excludes local environments, credentials, node_modules, and non-backend assets
+# ==============================================================================
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Environment and secrets (CRITICAL: Never copy to image context)
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+
+# Node, frontend, and package manifests
+node_modules
+frontend
+package.json
+package-lock.json
+backend/package.json
+
+# Python virtual environments
+.venv
+venv
+env
+ENV
+
+# Python cache and compiled bytecode
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache
+.coverage
+htmlcov
+
+# Local editor and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+*.log
+
+# Project documentation and standalone non-backend folders
+*.md
+hardware
+backend/tests
+backend/supabase
+dist
+build

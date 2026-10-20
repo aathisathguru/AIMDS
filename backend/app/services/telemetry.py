@@ -133,13 +133,20 @@ class TelemetryStore:
         for alert in alerts_for_reading(row):
             dispatch_alert(alert)
 
-        # Persist to Supabase when configured
+        # Persist to Supabase when configured (run in thread executor to prevent event loop starvation)
         client = get_client()
         if client is not None:
+            def _persist_reading() -> None:
+                try:
+                    client.table("aimds_telemetry_readings").insert(row).execute()
+                except Exception:
+                    pass
+
             try:
-                client.table("aimds_telemetry_readings").insert(row).execute()
-            except Exception:
-                pass
+                loop = asyncio.get_running_loop()
+                loop.run_in_executor(None, _persist_reading)
+            except RuntimeError:
+                _persist_reading()
 
         # Broadcast via WebSockets asynchronously
         try:
