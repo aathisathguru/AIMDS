@@ -1,0 +1,159 @@
+.shell {
+  min-height: 100dvh;
+  width: 100%;
+  position: relative;
+}
+
+.shell__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-width: 0;
+  transition: padding-left var(--t-med) var(--ease-out);
+}
+
+.shell__main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  padding: var(--sp-4) 12px calc(var(--bottomnav-h) + var(--safe-b) + var(--sp-6));
+  min-width: 0;
+}
+
+/* faint technical grid — anchors the "command centre" feel */
+.shell__canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 120% 90% at 50% 0%,
+    #000 30%,
+    transparent 78%
+  );
+}
+
+.shell__page {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .shell__body {
+    padding-left: var(--rail-w-mini);
+  }
+  .shell__main {
+    padding: var(--sp-5) 18px var(--sp-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell__body {
+    padding-left: var(--rail-w);
+  }
+  .shell.is-mini .shell__body {
+    padding-left: var(--rail-w-mini);
+  }
+  .shell__main {
+    padding: var(--sp-6) 22px var(--sp-9);
+  }
+}
+
+@media (min-width: 1440px) {
+  .shell__main {
+    padding: var(--sp-6) var(--sp-8) var(--sp-9);
+  }
+}
+
+/* ==========================================================================
+   Shared page-level grid helpers
+   ========================================================================== */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+.stack--lg {
+  gap: var(--sp-5);
+}
+
+@media (min-width: 1024px) {
+  .stack {
+    gap: var(--sp-5);
+  }
+  .stack--lg {
+    gap: var(--sp-6);
+  }
+}
+
+.grid-auto {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 520px) {
+  .grid-auto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid-auto {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-4);
+  }
+}
+@media (min-width: 1440px) {
+  .grid-auto {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.grid-2 {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-4);
+  }
+}
+
+.grid-split {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1100px) {
+  .grid-split {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: start;
+  }
+}
+
+.grid-split > *,
+.grid-2 > *,
+.grid-auto > * {
+  min-width: 0;
+}
+
+/* UI refresh: clearer page rhythm and a quieter command surface. */
+.shell__main { padding-top: clamp(1.25rem, 2vw, 2rem); }
+.shell__page { max-width: 1480px; }
+@media (min-width: 1440px) { .shell__main { padding-left: clamp(2rem, 3vw, 3.5rem); padding-right: clamp(2rem, 3vw, 3.5rem); } }
+
+/* Product shell refresh */
+.shell__canvas { display: none; }
+.shell__main { padding-top: 1.35rem; }
+.shell__page { max-width: 1500px; }
+@media (min-width: 768px) { .shell__main { padding: 1.5rem 1.5rem 3rem; } }
+@media (min-width: 1440px) { .shell__main { padding-left: 2.75rem; padding-right: 2.75rem; } }

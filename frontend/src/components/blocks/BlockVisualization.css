@@ -1,0 +1,492 @@
+.bviz {
+  position: relative;
+  container-type: inline-size;
+  container-name: bviz;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: background-color var(--t-theme) var(--ease-out),
+    border-color var(--t-theme) var(--ease-out);
+}
+
+.bviz::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 80% at 50% -10%,
+    var(--accent-softer) 0%,
+    transparent 58%
+  );
+  pointer-events: none;
+}
+
+/* ---------------- head ---------------- */
+.bviz__head {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.bviz__brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.bviz__name {
+  font-size: var(--fs-xl);
+  letter-spacing: -0.022em;
+  margin-top: 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.bviz__code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent-ink);
+  letter-spacing: 0.02em;
+}
+
+.bviz__loc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.bviz__head-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: none;
+}
+
+.bviz__count {
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ---------------- stage ---------------- */
+.bviz__stage {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1400px;
+  will-change: transform;
+}
+
+.bviz__roof {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  height: 20px;
+  margin: 0 8px;
+  padding: 0 14px;
+  border-radius: var(--r-sm) var(--r-sm) 0 0;
+  background: linear-gradient(
+    180deg,
+    var(--surface-3),
+    color-mix(in srgb, var(--surface-3) 60%, var(--surface-2))
+  );
+  border: 1px solid var(--border-2);
+  border-bottom: none;
+}
+
+.bviz__roof-vent {
+  width: 16px;
+  height: 6px;
+  border-radius: 2px 2px 0 0;
+  background: var(--border-2);
+  align-self: flex-start;
+  margin-top: -6px;
+}
+
+.bviz__roof-label {
+  position: absolute;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text-ghost);
+}
+
+.bviz__floors {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------------- floor slab ---------------- */
+.bviz__floor {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-areas: 'tag main metrics status chev';
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 60px;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--r-sm);
+  background: linear-gradient(
+    100deg,
+    var(--surface-2) 0%,
+    color-mix(in srgb, var(--surface-2) 70%, var(--surface)) 100%
+  );
+  border: 1px solid var(--border);
+  text-align: left;
+  overflow: hidden;
+  transition: transform var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out),
+    background-color var(--t-fast) var(--ease-out);
+}
+
+.bviz__floor-metrics {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  grid-area: metrics;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+.bviz__unit {
+  font-size: var(--fs-micro);
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.bviz__floor:hover,
+.bviz__floor:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+}
+.bviz__floor:active {
+  transform: translateY(0) scale(0.994);
+}
+
+.bviz__edge {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--slab-tone);
+  opacity: 0.55;
+  transition: opacity var(--t-med) var(--ease-out), top var(--t-med) var(--ease-out),
+    bottom var(--t-med) var(--ease-out);
+}
+.bviz__floor:hover .bviz__edge,
+.bviz__floor:focus-visible .bviz__edge {
+  opacity: 1;
+  top: 4%;
+  bottom: 4%;
+}
+
+.bviz__floor.tone-ok {
+  --slab-tone: var(--st-ok);
+}
+.bviz__floor.tone-warn {
+  --slab-tone: var(--st-warn);
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--st-warn) 9%, var(--surface-2)) 0%,
+    var(--surface-2) 78%
+  );
+  border-color: color-mix(in srgb, var(--st-warn) 24%, var(--border));
+}
+.bviz__floor.tone-crit {
+  --slab-tone: var(--st-crit);
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--st-crit) 10%, var(--surface-2)) 0%,
+    var(--surface-2) 78%
+  );
+  border-color: color-mix(in srgb, var(--st-crit) 26%, var(--border));
+}
+.bviz__floor.tone-idle {
+  --slab-tone: var(--st-idle);
+}
+
+.bviz__floor-tag {
+  grid-area: tag;
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: var(--r-xs);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  font-size: var(--fs-micro);
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  flex: none;
+}
+.bviz__floor:hover .bviz__floor-tag {
+  color: var(--text);
+  border-color: var(--border-2);
+}
+
+.bviz__floor-main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.bviz__floor-name {
+  font-size: var(--fs-sm);
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bviz__dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.bviz__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dot);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--dot) 18%, transparent);
+  flex: none;
+}
+.bviz__dot.dot-ok {
+  --dot: var(--st-ok);
+}
+.bviz__dot.dot-warn {
+  --dot: var(--st-warn);
+}
+.bviz__dot.dot-crit {
+  --dot: var(--st-crit);
+}
+.bviz__dot.dot-idle {
+  --dot: var(--st-idle);
+}
+
+.bviz__floor-status {
+  grid-area: status;
+  flex: none;
+}
+
+.bviz__chev {
+  grid-area: chev;
+  color: var(--text-ghost);
+  flex: none;
+  transition: transform var(--t-med) var(--ease-out), color var(--t-med) var(--ease-out);
+}
+.bviz__floor:hover .bviz__chev {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+/* subtle sweep on hover only — no permanent motion */
+.bviz__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    color-mix(in srgb, var(--slab-tone) 12%, transparent) 46%,
+    transparent 72%
+  );
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: opacity var(--t-fast) linear;
+}
+.bviz__floor:hover .bviz__scan {
+  opacity: 1;
+  animation: bviz-sweep 1.1s var(--ease-out);
+}
+@keyframes bviz-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------------- base plate ---------------- */
+.bviz__base {
+  margin: 5px 4px 0;
+  height: 10px;
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  background: linear-gradient(180deg, var(--surface-3), transparent);
+  border: 1px solid var(--border);
+  border-top: none;
+  position: relative;
+}
+.bviz__base-line {
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-strong) 18%,
+    var(--border-strong) 82%,
+    transparent
+  );
+}
+
+.bviz__shadow {
+  height: 26px;
+  margin: 0 18px;
+  background: radial-gradient(
+    50% 100% at 50% 0%,
+    color-mix(in srgb, var(--brand-ink) 22%, transparent) 0%,
+    transparent 72%
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ---------------- legend ---------------- */
+.bviz__legend {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+}
+.bviz__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.bviz__legend-hint {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  color: var(--text-ghost);
+  letter-spacing: 0.03em;
+}
+
+/* ---------------- compact variant ---------------- */
+.bviz--compact {
+  padding: var(--sp-3);
+  gap: var(--sp-3);
+}
+.bviz--compact .bviz__name {
+  font-size: var(--fs-md);
+}
+.bviz--compact .bviz__floor {
+  min-height: 52px;
+}
+.bviz--compact .bviz__roof,
+.bviz--compact .bviz__shadow {
+  display: none;
+}
+
+/* ---------------- responsive ----------------
+   Floor rows key off the elevation's own width, not the viewport, so the
+   same component stays legible in a narrow grid card and in a full-width
+   panel. Below 340px of container the chevron and metrics step aside so the
+   floor name always has room. */
+
+/* narrowest: tag + name + status only */
+@container bviz (max-width: 339px) {
+  .bviz__floor {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'tag main status';
+    gap: 0.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 0.75rem;
+  }
+  .bviz__chev {
+    display: none;
+  }
+  .bviz__floor-tag {
+    min-width: 38px;
+  }
+  .bviz__dots {
+    flex-wrap: nowrap;
+  }
+}
+
+/* roomy: bring back the inline energy reading */
+@container bviz (min-width: 460px) {
+  .bviz__floor {
+    grid-template-columns: auto 1fr auto auto auto;
+    grid-template-areas: 'tag main metrics status chev';
+    min-height: 70px;
+    padding-left: 1.1rem;
+  }
+  .bviz__floor-metrics {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: var(--fs-sm);
+    font-weight: 650;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+  }
+  .bviz__unit {
+    font-size: var(--fs-micro);
+    color: var(--text-ghost);
+    letter-spacing: 0.05em;
+  }
+  .bviz__floors {
+    gap: 5px;
+  }
+}
+
+@container bviz (min-width: 620px) {
+  .bviz__floor {
+    min-height: 78px;
+  }
+  .bviz__floor-name {
+    font-size: var(--fs-md);
+  }
+  .bviz__floor-tag {
+    min-width: 50px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bviz {
+    padding: var(--sp-5);
+    gap: var(--sp-5);
+  }
+}

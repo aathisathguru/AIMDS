@@ -1,0 +1,371 @@
+/* ==========================================================================
+   AIMDS · Design Tokens
+   Official Brand Aesthetic: Electric Blue, Cyan, Deep Industrial Navy
+   Palette:  #090D16   #00D4FF   #3A86FF   #F0F4FC
+   ========================================================================== */
+
+:root {
+  /* --- Brand constants (derived from official electric logo) --- */
+  --brand-navy: #090d16;
+  --brand-cyan: #00d4ff;
+  --brand-blue: #3a86ff;
+  --brand-paper: #f0f4fc;
+
+  /* --- Type --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --fs-micro: 0.625rem; /* 10px eyebrow */
+  --fs-tiny: 0.6875rem; /* 11px */
+  --fs-xs: 0.75rem; /* 12px */
+  --fs-sm: 0.8125rem; /* 13px */
+  --fs-base: 0.875rem; /* 14px */
+  --fs-md: 0.9375rem; /* 15px */
+  --fs-lg: 1.0625rem; /* 17px */
+  --fs-xl: clamp(1.125rem, 0.95rem + 0.75vw, 1.375rem);
+  --fs-2xl: clamp(1.375rem, 1.05rem + 1.4vw, 1.875rem);
+  --fs-3xl: clamp(1.75rem, 1.2rem + 2.6vw, 3rem);
+  --fs-metric: clamp(1.5rem, 1.1rem + 1.9vw, 2.25rem);
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-body: 1.55;
+
+  /* --- Space (8px grid foundation) --- */
+  --sp-1: 0.25rem; /* 4px */
+  --sp-2: 0.5rem; /* 8px */
+  --sp-3: 0.75rem; /* 12px */
+  --sp-4: 1rem; /* 16px */
+  --sp-5: 1.25rem; /* 20px */
+  --sp-6: 1.5rem; /* 24px */
+  --sp-7: 2rem; /* 32px */
+  --sp-8: 2.5rem; /* 40px */
+  --sp-9: 3.25rem; /* 52px */
+
+  /* --- Radius --- */
+  --r-xs: 6px;
+  --r-sm: 9px;
+  --r-md: 13px;
+  --r-lg: 18px;
+  --r-xl: 22px;
+  --r-pill: 999px;
+
+  /* --- Layout --- */
+  --rail-w: 250px;
+  --rail-w-mini: 74px;
+  --topbar-h: 58px;
+  --bottomnav-h: 62px;
+  --page-max: 1600px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 140ms;
+  --t-med: 240ms;
+  --t-slow: 420ms;
+  --t-theme: 320ms;
+
+  --z-rail: 40;
+  --z-topbar: 45;
+  --z-bottomnav: 50;
+  --z-overlay: 90;
+  --z-modal: 100;
+  --z-toast: 120;
+}
+
+/* ==========================================================================
+   DARK (Default — Modern Electrical Control Panel / SCADA aesthetic)
+   ========================================================================== */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #090d16;
+  --bg-deep: #060910;
+  --bg-grid: rgba(0, 212, 255, 0.032);
+
+  --surface: #0f1728;
+  --surface-2: #141f35;
+  --surface-3: #1a2846;
+  --surface-inset: #0a101d;
+
+  --border: rgba(0, 212, 255, 0.08);
+  --border-2: rgba(0, 212, 255, 0.16);
+  --border-strong: rgba(0, 212, 255, 0.32);
+
+  --text: #f0f4fc;
+  --text-dim: rgba(240, 244, 252, 0.70);
+  --text-faint: rgba(240, 244, 252, 0.45);
+  --text-ghost: rgba(240, 244, 252, 0.25);
+
+  /* Primary Accent: Electric Cyan (from official vortex logo) */
+  --accent: #00d4ff;
+  --accent-ink: #38bdf8;
+  --accent-soft: rgba(0, 212, 255, 0.12);
+  --accent-softer: rgba(0, 212, 255, 0.06);
+  --accent-line: rgba(0, 212, 255, 0.40);
+  --accent-glow: rgba(0, 212, 255, 0.28);
+
+  /* Secondary: Deep Electric Blue */
+  --blue: #3a86ff;
+  --blue-ink: #60a5fa;
+  --blue-soft: rgba(58, 134, 255, 0.14);
+  --blue-softer: rgba(58, 134, 255, 0.07);
+  --blue-line: rgba(58, 134, 255, 0.40);
+  --blue-glow: rgba(58, 134, 255, 0.28);
+
+  /* Cyan Highlight */
+  --cyan: #00f5ff;
+  --cyan-soft: rgba(0, 245, 255, 0.14);
+  --cyan-glow: rgba(0, 245, 255, 0.30);
+
+  /* Purple Accent: Hostel monitoring */
+  --purple: #8b5cf6;
+  --purple-ink: #a78bfa;
+  --purple-soft: rgba(139, 92, 246, 0.14);
+  --purple-softer: rgba(139, 92, 246, 0.07);
+  --purple-line: rgba(139, 92, 246, 0.40);
+  --purple-glow: rgba(139, 92, 246, 0.28);
+
+  /* Status — electric telemetry control room colors */
+  --st-ok: #00e676;
+  --st-ok-soft: rgba(0, 230, 118, 0.14);
+  --st-warn: #ffb300;
+  --st-warn-soft: rgba(255, 179, 0, 0.14);
+  --st-crit: #ff3366;
+  --st-crit-soft: rgba(255, 51, 102, 0.16);
+  --st-info: #00d4ff;
+  --st-info-soft: rgba(0, 212, 255, 0.14);
+  --st-idle: rgba(240, 244, 252, 0.35);
+  --st-idle-soft: rgba(240, 244, 252, 0.08);
+
+  --shadow-xs: 0 1px 2px rgba(3, 7, 18, 0.4);
+  --shadow-sm: 0 2px 8px rgba(3, 7, 18, 0.35);
+  --shadow-md: 0 10px 28px -8px rgba(3, 7, 18, 0.65);
+  --shadow-lg: 0 26px 60px -18px rgba(3, 7, 18, 0.85);
+  --shadow-glow-a: 0 0 0 1px var(--accent-line), 0 8px 24px -8px var(--accent-glow);
+  --shadow-glow-b: 0 0 0 1px var(--blue-line), 0 8px 24px -8px var(--blue-glow);
+
+  --scrim: rgba(6, 9, 16, 0.78);
+  --sheen: linear-gradient(
+    180deg,
+    rgba(0, 212, 255, 0.05) 0%,
+    rgba(240, 244, 252, 0) 42%
+  );
+}
+
+/* ==========================================================================
+   LIGHT (Refined Technical Blue & Slate)
+   ========================================================================== */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f0f4f9;
+  --bg-deep: #e2e8f0;
+  --bg-grid: rgba(2, 132, 199, 0.035);
+
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --surface-inset: #eef2f7;
+
+  --border: rgba(15, 23, 42, 0.09);
+  --border-2: rgba(15, 23, 42, 0.15);
+  --border-strong: rgba(15, 23, 42, 0.28);
+
+  --text: #0b1329;
+  --text-dim: rgba(11, 19, 41, 0.68);
+  --text-faint: rgba(11, 19, 41, 0.48);
+  --text-ghost: rgba(11, 19, 41, 0.26);
+
+  --accent: #0284c7;
+  --accent-ink: #0369a1;
+  --accent-soft: rgba(2, 132, 199, 0.12);
+  --accent-softer: rgba(2, 132, 199, 0.05);
+  --accent-line: rgba(2, 132, 199, 0.38);
+  --accent-glow: rgba(2, 132, 199, 0.22);
+
+  --blue: #2563eb;
+  --blue-ink: #1d4ed8;
+  --blue-soft: rgba(37, 99, 235, 0.12);
+  --blue-softer: rgba(37, 99, 235, 0.05);
+  --blue-line: rgba(37, 99, 235, 0.38);
+  --blue-glow: rgba(37, 99, 235, 0.20);
+
+  --cyan: #0891b2;
+  --cyan-soft: rgba(8, 145, 178, 0.12);
+  --cyan-glow: rgba(8, 145, 178, 0.20);
+
+  /* Purple Accent: Hostel monitoring */
+  --purple: #7c3aed;
+  --purple-ink: #6d28d9;
+  --purple-soft: rgba(124, 58, 237, 0.12);
+  --purple-softer: rgba(124, 58, 237, 0.06);
+  --purple-line: rgba(124, 58, 237, 0.35);
+  --purple-glow: rgba(124, 58, 237, 0.20);
+
+  --st-ok: #059669;
+  --st-ok-soft: rgba(5, 150, 105, 0.12);
+  --st-warn: #d97706;
+  --st-warn-soft: rgba(217, 119, 6, 0.12);
+  --st-crit: #dc2626;
+  --st-crit-soft: rgba(220, 38, 38, 0.12);
+  --st-info: #0284c7;
+  --st-info-soft: rgba(2, 132, 199, 0.12);
+  --st-idle: rgba(15, 23, 42, 0.38);
+  --st-idle-soft: rgba(15, 23, 42, 0.06);
+
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.07);
+  --shadow-md: 0 12px 28px -12px rgba(15, 23, 42, 0.16);
+  --shadow-lg: 0 28px 60px -22px rgba(15, 23, 42, 0.24);
+  --shadow-glow-a: 0 0 0 1px var(--accent-line), 0 12px 28px -12px var(--accent-glow);
+  --shadow-glow-b: 0 0 0 1px var(--blue-line), 0 12px 28px -12px var(--blue-glow);
+
+  --scrim: rgba(15, 23, 42, 0.48);
+  --sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 46%
+  );
+}
+
+/* UI refresh: restrained enterprise SaaS palette and type scale. */
+:root {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --shadow-panel: 0 12px 32px -20px rgba(3, 7, 18, 0.55);
+}
+[data-theme="dark"] {
+  --bg: #08111f;
+  --bg-deep: #050b14;
+  --surface: #0d192b;
+  --surface-2: #12233a;
+  --surface-3: #1a3150;
+  --surface-inset: #091525;
+  --border: rgba(154, 190, 226, 0.13);
+  --border-2: rgba(154, 190, 226, 0.23);
+  --text: #f4f8fc;
+  --text-dim: rgba(224, 235, 247, 0.72);
+  --text-faint: rgba(204, 221, 239, 0.52);
+  --accent: #36c5f0;
+  --accent-ink: #72d7f5;
+  --accent-soft: rgba(54, 197, 240, 0.13);
+  --accent-softer: rgba(54, 197, 240, 0.06);
+  --accent-line: rgba(54, 197, 240, 0.34);
+  --blue: #5d8bff;
+  --blue-ink: #91adff;
+  --blue-soft: rgba(93, 139, 255, 0.14);
+  --blue-softer: rgba(93, 139, 255, 0.07);
+  --blue-line: rgba(93, 139, 255, 0.34);
+}
+[data-theme="light"] {
+  --bg: #f4f7fb;
+  --bg-deep: #edf2f7;
+  --surface: #ffffff;
+  --surface-2: #f7faff;
+  --surface-3: #eef4fb;
+  --surface-inset: #f8fafc;
+  --border: rgba(29, 55, 86, 0.11);
+  --border-2: rgba(29, 55, 86, 0.18);
+  --text: #132238;
+  --text-dim: rgba(31, 53, 78, 0.72);
+  --text-faint: rgba(31, 53, 78, 0.52);
+  --accent: #087ea4;
+  --accent-ink: #0c6c8b;
+  --blue: #3567d6;
+  --blue-ink: #2b59bd;
+}
+
+/* --------------------------------------------------------------------------
+   AIMDS Product UI refresh — editorial control room
+   Calm, precise and information-dense; no decorative glow or gradients.
+   -------------------------------------------------------------------------- */
+:root {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  --r-xs: 5px;
+  --r-sm: 7px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-xl: 14px;
+  --rail-w: 232px;
+  --topbar-h: 56px;
+  --shadow-panel: 0 1px 2px rgba(3, 10, 18, 0.18), 0 10px 28px -22px rgba(3, 10, 18, 0.55);
+}
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-deep: #090c11;
+  --bg-grid: transparent;
+  --surface: #151b23;
+  --surface-2: #1b232d;
+  --surface-3: #222d39;
+  --surface-inset: #10161d;
+  --border: rgba(177, 197, 216, 0.12);
+  --border-2: rgba(177, 197, 216, 0.2);
+  --border-strong: rgba(177, 197, 216, 0.34);
+  --text: #edf3f7;
+  --text-dim: rgba(220, 232, 240, 0.72);
+  --text-faint: rgba(194, 213, 225, 0.5);
+  --text-ghost: rgba(194, 213, 225, 0.28);
+  --accent: #73d6bb;
+  --accent-ink: #8ee5cc;
+  --accent-soft: rgba(115, 214, 187, 0.13);
+  --accent-softer: rgba(115, 214, 187, 0.06);
+  --accent-line: rgba(115, 214, 187, 0.34);
+  --accent-glow: transparent;
+  --blue: #7da4f7;
+  --blue-ink: #9ab9ff;
+  --blue-soft: rgba(125, 164, 247, 0.13);
+  --blue-softer: rgba(125, 164, 247, 0.06);
+  --blue-line: rgba(125, 164, 247, 0.32);
+  --blue-glow: transparent;
+  --st-ok: #73d6bb;
+  --st-warn: #e8b86b;
+  --st-crit: #ec7f84;
+  --st-info: #7da4f7;
+  --shadow-glow-a: var(--shadow-panel);
+  --shadow-glow-b: var(--shadow-panel);
+  --sheen: none;
+}
+[data-theme="light"] {
+  --bg: #f3f5f4;
+  --bg-deep: #e9eeec;
+  --surface: #ffffff;
+  --surface-2: #f7f9f8;
+  --surface-3: #eef3f1;
+  --surface-inset: #f5f7f6;
+  --border: rgba(24, 43, 53, 0.1);
+  --border-2: rgba(24, 43, 53, 0.17);
+  --border-strong: rgba(24, 43, 53, 0.28);
+  --text: #15242c;
+  --text-dim: rgba(24, 47, 58, 0.72);
+  --text-faint: rgba(24, 47, 58, 0.5);
+  --text-ghost: rgba(24, 47, 58, 0.28);
+  --accent: #16866f;
+  --accent-ink: #14745f;
+  --accent-soft: rgba(22, 134, 111, 0.11);
+  --accent-softer: rgba(22, 134, 111, 0.05);
+  --accent-line: rgba(22, 134, 111, 0.3);
+  --accent-glow: transparent;
+  --blue: #456fd1;
+  --blue-ink: #365db6;
+  --blue-soft: rgba(69, 111, 209, 0.1);
+  --blue-softer: rgba(69, 111, 209, 0.05);
+  --blue-line: rgba(69, 111, 209, 0.3);
+  --blue-glow: transparent;
+  --st-ok: #16866f;
+  --st-warn: #b97922;
+  --st-crit: #c94e59;
+  --st-info: #456fd1;
+  --shadow-glow-a: var(--shadow-panel);
+  --shadow-glow-b: var(--shadow-panel);
+  --sheen: none;
+}

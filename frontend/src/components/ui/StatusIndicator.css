@@ -1,0 +1,111 @@
+.st-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.24rem 0.5rem 0.24rem 0.42rem;
+  border-radius: var(--r-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.35;
+}
+.st-chip--sm {
+  font-size: var(--fs-micro);
+  padding: 0.15rem 0.4rem 0.15rem 0.32rem;
+}
+.st-chip svg {
+  flex: none;
+}
+
+.st-chip--ok {
+  color: var(--st-ok);
+  background: var(--st-ok-soft);
+  border-color: color-mix(in srgb, var(--st-ok) 30%, transparent);
+}
+.st-chip--warn {
+  color: var(--st-warn);
+  background: var(--st-warn-soft);
+  border-color: color-mix(in srgb, var(--st-warn) 34%, transparent);
+}
+.st-chip--crit {
+  color: var(--st-crit);
+  background: var(--st-crit-soft);
+  border-color: color-mix(in srgb, var(--st-crit) 34%, transparent);
+}
+.st-chip--info {
+  color: var(--st-info);
+  background: var(--st-info-soft);
+  border-color: color-mix(in srgb, var(--st-info) 32%, transparent);
+}
+.st-chip--idle {
+  color: var(--text-faint);
+  background: var(--st-idle-soft);
+  border-color: var(--border);
+}
+
+/* ---------- dot ---------- */
+.st-dot {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 10px;
+  height: 10px;
+  flex: none;
+}
+.st-dot__core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--tone) 22%, transparent);
+}
+.st-dot__ring {
+  position: absolute;
+  inset: 1px;
+  border-radius: 50%;
+  background: var(--tone);
+  animation: aimds-pulse-ring 2.4s var(--ease-out) infinite;
+}
+.st-dot--ok {
+  --tone: var(--st-ok);
+}
+.st-dot--warn {
+  --tone: var(--st-warn);
+}
+.st-dot--crit {
+  --tone: var(--st-crit);
+}
+.st-dot--info {
+  --tone: var(--st-info);
+}
+.st-dot--idle {
+  --tone: var(--st-idle);
+}
+
+/* ---------- inline ---------- */
+.st-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+}
+.st-inline--ok {
+  color: var(--st-ok);
+}
+.st-inline--warn {
+  color: var(--st-warn);
+}
+.st-inline--crit {
+  color: var(--st-crit);
+}
+.st-inline--info {
+  color: var(--st-info);
+}
+.st-inline--idle {
+  color: var(--text-faint);
+}

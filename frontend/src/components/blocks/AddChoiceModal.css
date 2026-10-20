@@ -1,0 +1,67 @@
+.add-choice-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-top: var(--sp-2);
+}
+
+.add-choice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  text-align: left;
+  transition: all var(--t-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.add-choice-card--academic:hover {
+  border-color: var(--accent-line);
+  background: var(--accent-softer);
+  transform: translateY(-1px);
+}
+
+.add-choice-card--hostel:hover {
+  border-color: var(--purple-line, rgba(139, 92, 246, 0.45));
+  background: var(--purple-soft, rgba(139, 92, 246, 0.12));
+  transform: translateY(-1px);
+}
+
+.add-choice-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  flex-shrink: 0;
+}
+
+.add-choice-icon-wrap.academic {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+}
+
+.add-choice-icon-wrap.hostel {
+  background: var(--purple-soft, rgba(139, 92, 246, 0.14));
+  color: var(--purple-ink, #a78bfa);
+  border: 1px solid var(--purple-line, rgba(139, 92, 246, 0.4));
+}
+
+.add-choice-text h3 {
+  margin: 0 0 4px 0;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.add-choice-text p {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  line-height: 1.4;
+}

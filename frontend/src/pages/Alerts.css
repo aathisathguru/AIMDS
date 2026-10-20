@@ -1,0 +1,80 @@
+.al__brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.al__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-tiny);
+  border: 1px solid transparent;
+}
+.al__pill strong {
+  font-weight: 750;
+}
+.al__pill.tone-crit {
+  color: var(--st-crit);
+  background: var(--st-crit-soft);
+  border-color: color-mix(in srgb, var(--st-crit) 28%, transparent);
+}
+.al__pill.tone-warn {
+  color: var(--st-warn);
+  background: var(--st-warn-soft);
+  border-color: color-mix(in srgb, var(--st-warn) 28%, transparent);
+}
+.al__pill.tone-info {
+  color: var(--st-info);
+  background: var(--st-info-soft);
+  border-color: color-mix(in srgb, var(--st-info) 28%, transparent);
+}
+.al__pill.tone-ok {
+  color: var(--st-ok);
+  background: var(--st-ok-soft);
+  border-color: color-mix(in srgb, var(--st-ok) 28%, transparent);
+}
+
+.al__filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.al__filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.al__filter-group .field__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.al__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+@media (min-width: 900px) {
+  .al__filters {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-4);
+  }
+  .al__block-select {
+    max-width: 240px;
+  }
+}

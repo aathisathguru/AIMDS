@@ -1,0 +1,380 @@
+/* ==========================================================================
+   AIMDS · Blocks Cards (Academic Block & Hostel Cards)
+   ========================================================================== */
+
+/* ---------- Academic Block Card ---------- */
+.ab-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+  overflow: hidden;
+  transition: border-color var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out),
+    transform var(--t-med) var(--ease-out);
+}
+
+.ab-card:hover {
+  border-color: var(--accent-line);
+  box-shadow: 0 4px 24px rgba(0, 195, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.ab-card__overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ab-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.ab-card__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.ab-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+  flex-shrink: 0;
+}
+
+.ab-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ab-card__name {
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ab-card__code {
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--r-xs);
+  background: var(--surface-3);
+  color: var(--accent-ink);
+  border: 1px solid var(--border-2);
+}
+
+.ab-card__location {
+  margin: 2px 0 0 0;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ab-card__floors-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0.4rem 0.65rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-3);
+}
+
+.ab-card__floors-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.ab-card__floors-badge strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.ab-card__sensor-badge {
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.ab-card__telemetry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: var(--sp-3);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-3);
+}
+
+.ab-card__telemetry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ab-card__telemetry-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+}
+
+.ab-card__telemetry-val {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ab-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+.ab-card__cost {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.ab-card__cost strong {
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.ab-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--accent-ink);
+  transition: gap var(--t-fast) var(--ease-out);
+}
+
+.ab-card:hover .ab-card__action {
+  gap: 8px;
+}
+
+.ab-card__arrow {
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.ab-card:hover .ab-card__arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Hostel Card (Purple Accent) ---------- */
+.hostel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--purple-line, rgba(139, 92, 246, 0.35));
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+  overflow: hidden;
+  transition: border-color var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out),
+    transform var(--t-med) var(--ease-out);
+}
+
+.hostel-card:hover {
+  border-color: var(--purple, #8b5cf6);
+  box-shadow: 0 4px 24px var(--purple-glow, rgba(139, 92, 246, 0.25));
+  transform: translateY(-2px);
+}
+
+.hostel-card__overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hostel-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.hostel-card__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.hostel-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--purple-soft, rgba(139, 92, 246, 0.15));
+  color: var(--purple-ink, #a78bfa);
+  border: 1px solid var(--purple-line, rgba(139, 92, 246, 0.4));
+  flex-shrink: 0;
+}
+
+.hostel-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hostel-card__name {
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hostel-card__tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: var(--r-xs);
+  background: var(--purple-soft, rgba(139, 92, 246, 0.18));
+  color: var(--purple-ink, #a78bfa);
+  border: 1px solid var(--purple-line, rgba(139, 92, 246, 0.4));
+}
+
+.hostel-card__sub {
+  margin: 2px 0 0 0;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.hostel-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: var(--sp-3);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-3);
+}
+
+.hostel-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hostel-card__metric-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+}
+
+.hostel-card__metric-value {
+  font-size: var(--fs-xs);
+  color: var(--text);
+}
+
+.hostel-card__metric-value strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hostel-card__metric-value.cost-val {
+  color: var(--purple-ink, #a78bfa);
+  font-weight: 700;
+}
+
+.hostel-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+.hostel-card__status-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.hostel-card__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple, #8b5cf6);
+  box-shadow: 0 0 6px var(--purple, #8b5cf6);
+}
+
+.hostel-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--purple-ink, #a78bfa);
+  transition: gap var(--t-fast) var(--ease-out);
+}
+
+.hostel-card:hover .hostel-card__action {
+  gap: 8px;
+}
+
+.hostel-card__arrow {
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.hostel-card:hover .hostel-card__arrow {
+  transform: translateX(3px);
+}

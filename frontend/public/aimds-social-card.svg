@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AIMDS multi-utility monitoring</title>
+  <desc id="desc">AIMDS AI-assisted multi-utility monitoring and decision support console.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090d16"/>
+      <stop offset="1" stop-color="#17283b"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#84d7ca" stroke-opacity=".12"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1000" cy="-20" r="290" fill="#84d7ca" fill-opacity=".10"/>
+  <path d="M72 486C260 402 352 486 512 410S792 276 1128 344" fill="none" stroke="#84d7ca" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="512" cy="410" r="9" fill="#f3c969"/>
+  <circle cx="792" cy="276" r="9" fill="#84d7ca"/>
+  <text x="78" y="176" fill="#84d7ca" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">AIMDS / OPERATIONS INTELLIGENCE</text>
+  <text x="72" y="292" fill="#ffffff" font-family="Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="-3">Monitor.</text>
+  <text x="72" y="386" fill="#ffffff" font-family="Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="-3">Analyze. Decide.</text>
+  <text x="78" y="540" fill="#b6c3d2" font-family="Arial, sans-serif" font-size="28">AI-assisted multi-utility monitoring for reliable campus operations.</text>
+</svg>

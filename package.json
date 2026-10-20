@@ -1,0 +1,22 @@
+{
+  "name": "aimds-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AIMDS — AI-Based Multi-Utility Monitoring and Decision Support System",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build",
+    "build:standalone": "npm --prefix frontend run build:standalone",
+    "preview": "npm --prefix frontend run preview",
+    "lint": "npm --prefix frontend run lint",
+    "install:frontend": "npm --prefix frontend install"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

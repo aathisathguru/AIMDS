@@ -1,0 +1,93 @@
+.seg {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+}
+.seg::-webkit-scrollbar {
+  display: none;
+}
+.seg--full {
+  width: 100%;
+}
+.seg--full .seg__btn {
+  flex: 1 1 0;
+}
+
+.seg__btn {
+  position: relative;
+  flex: none;
+  min-height: 36px;
+  padding: 0 0.75rem;
+  border-radius: calc(var(--r-sm) - 3px);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--text-faint);
+  white-space: nowrap;
+  transition: color var(--t-fast) var(--ease-out);
+}
+.seg--sm .seg__btn {
+  min-height: 30px;
+  padding: 0 0.6rem;
+  font-size: var(--fs-tiny);
+}
+.seg__btn:hover {
+  color: var(--text-dim);
+}
+.seg__btn.is-active {
+  color: var(--text);
+}
+
+.seg__pill {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--r-sm) - 3px);
+  background: var(--surface-3);
+  border: 1px solid var(--border-2);
+  box-shadow: var(--shadow-xs);
+}
+
+.seg__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.seg__count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  padding: 1px 5px;
+  border-radius: 99px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+}
+.seg__btn.is-active .seg__count {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent-ink);
+}
+
+/* Optional short label: long form from 480px up, abbreviation below. */
+.seg__text--short {
+  display: inline;
+}
+.seg__text--long {
+  display: none;
+}
+@media (min-width: 480px) {
+  .seg__text--short {
+    display: none;
+  }
+  .seg__text--long {
+    display: inline;
+  }
+}

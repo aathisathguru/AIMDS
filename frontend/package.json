@@ -1,0 +1,28 @@
+{
+  "name": "aimds",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AIMDS — AI-Based Multi-Utility Monitoring and Decision Support System (frontend)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:standalone": "vite build --mode standalone && node tools/standalone.mjs",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "dependencies": {
+    "framer-motion": "^13.1.1",
+    "lucide-react": "^1.34.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.88.0",
+    "vite": "^8.3.4"
+  }
+}

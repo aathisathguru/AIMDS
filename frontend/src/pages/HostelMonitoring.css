@@ -1,0 +1,249 @@
+/* ==========================================================================
+   AIMDS · Hostel Live Utility Monitoring (Subtle Purple Aesthetic)
+   ========================================================================== */
+
+.hostel-monitoring {
+  --hm-purple: var(--purple, #8b5cf6);
+  --hm-purple-ink: var(--purple-ink, #a78bfa);
+  --hm-purple-soft: var(--purple-soft, rgba(139, 92, 246, 0.12));
+  --hm-purple-line: var(--purple-line, rgba(139, 92, 246, 0.35));
+  --hm-purple-glow: var(--purple-glow, rgba(139, 92, 246, 0.25));
+}
+
+.hm__brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px 2px 4px;
+  background: var(--hm-purple-soft);
+  border: 1px solid var(--hm-purple-line);
+  border-radius: var(--r-xs);
+}
+
+.hm__badge-eyebrow {
+  color: var(--hm-purple-ink) !important;
+  font-weight: 700;
+}
+
+.hm__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.hm__top-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.hm__live-btn {
+  background: var(--hm-purple) !important;
+  border-color: var(--hm-purple-line) !important;
+  color: #fff !important;
+}
+
+.hm__live-btn:hover {
+  background: #7c3aed !important;
+  box-shadow: 0 0 16px var(--hm-purple-glow) !important;
+}
+
+/* Status Banner */
+.hm__status-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.08) 0%,
+    var(--surface-2) 100%
+  );
+  border: 1px solid var(--hm-purple-line);
+  border-radius: var(--r-md);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
+}
+
+@media (min-width: 768px) {
+  .hm__status-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.hm__status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hm-purple-ink);
+  margin-bottom: 4px;
+}
+
+.hm__pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--hm-purple);
+  box-shadow: 0 0 8px var(--hm-purple);
+  animation: hm-pulse 2s infinite ease-in-out;
+}
+
+@keyframes hm-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.hm__status-text {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  max-width: 620px;
+  line-height: 1.5;
+}
+
+.hm__status-side {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-shrink: 0;
+}
+
+.hm__status-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hm__status-kpi .font-bold {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hm__hint {
+  font-size: var(--fs-tiny);
+  color: var(--hm-purple-ink);
+}
+
+/* Metrics Grid */
+.hm__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+@media (min-width: 640px) {
+  .hm__metrics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hm__metrics-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .hm__metrics-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+.hm__metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease-out);
+}
+
+.hm__metric-card:hover {
+  border-color: var(--hm-purple-line);
+  background: var(--hm-purple-soft);
+  transform: translateY(-2px);
+}
+
+.hm__metric-card.is-selected {
+  border-color: var(--hm-purple);
+  background: rgba(139, 92, 246, 0.16);
+  box-shadow: 0 0 16px var(--hm-purple-glow);
+}
+
+.hm__metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.hm__metric-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.hm__metric-icon {
+  color: var(--hm-purple-ink);
+  flex-shrink: 0;
+}
+
+.hm__metric-val {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.hm__metric-unit {
+  font-size: var(--fs-tiny);
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.hm__metric-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 4px;
+  font-size: 9px;
+}
+
+.hm__metric-tag {
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+.hm__metric-active-pill {
+  color: var(--hm-purple-ink);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hm__chart-panel {
+  border-color: var(--hm-purple-line) !important;
+}

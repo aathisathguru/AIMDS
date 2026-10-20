@@ -1,0 +1,175 @@
+{
+  "RANGES": [
+    {
+      "id": "24h",
+      "label": "24H",
+      "labels": [
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00"
+      ]
+    },
+    {
+      "id": "7d",
+      "label": "7D",
+      "labels": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ]
+    },
+    {
+      "id": "6w",
+      "label": "6W",
+      "labels": [
+        "W-5",
+        "W-4",
+        "W-3",
+        "W-2",
+        "W-1",
+        "Now"
+      ]
+    },
+    {
+      "id": "6m",
+      "label": "6M",
+      "labels": [
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug"
+      ]
+    }
+  ],
+  "SENSOR_TYPES": [
+    {
+      "key": "energy",
+      "type": "Energy Meter",
+      "unit": "kWh",
+      "prefix": "EM",
+      "model": "EMX-4200"
+    },
+    {
+      "key": "water",
+      "type": "Water Flow",
+      "unit": "L",
+      "prefix": "WF",
+      "model": "AQF-118"
+    },
+    {
+      "key": "temperature",
+      "type": "Temperature",
+      "unit": "\u00b0C",
+      "prefix": "TS",
+      "model": "THS-22"
+    },
+    {
+      "key": "humidity",
+      "type": "Humidity",
+      "unit": "%",
+      "prefix": "HS",
+      "model": "THS-22"
+    },
+    {
+      "key": "load",
+      "type": "Power Load",
+      "unit": "kW",
+      "prefix": "PL",
+      "model": "PLM-90"
+    }
+  ],
+  "STATUS_META": {
+    "normal": {
+      "label": "Normal",
+      "tone": "ok"
+    },
+    "attention": {
+      "label": "Attention",
+      "tone": "warn"
+    },
+    "critical": {
+      "label": "Critical",
+      "tone": "crit"
+    },
+    "offline": {
+      "label": "Offline",
+      "tone": "idle"
+    },
+    "operational": {
+      "label": "Operational",
+      "tone": "ok"
+    },
+    "degraded": {
+      "label": "Degraded",
+      "tone": "warn"
+    },
+    "standby": {
+      "label": "Standby",
+      "tone": "info"
+    }
+  },
+  "UTILITIES": [
+    {
+      "id": "energy",
+      "label": "Energy",
+      "unit": "kWh",
+      "tone": "accent",
+      "icon": "zap"
+    },
+    {
+      "id": "water",
+      "label": "Water",
+      "unit": "L",
+      "tone": "blue",
+      "icon": "droplets"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "unit": "\u00b0C",
+      "tone": "accent",
+      "icon": "thermometer"
+    },
+    {
+      "id": "humidity",
+      "label": "Humidity",
+      "unit": "%",
+      "tone": "blue",
+      "icon": "waves"
+    },
+    {
+      "id": "load",
+      "label": "Power Load",
+      "unit": "kW",
+      "tone": "accent",
+      "icon": "gauge"
+    }
+  ]
+}

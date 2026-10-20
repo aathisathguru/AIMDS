@@ -1,0 +1,16 @@
+# AIMDS
+
+AIMDS is an AI-assisted multi-utility monitoring and decision support system for campus operations. It brings together electricity, water, temperature, humidity, power load, alerts, analytics, reports, and live ESP32 telemetry in one authenticated operations console.
+
+## Access
+
+The dashboard and monitoring routes are private operator surfaces. They require authentication and are intentionally excluded from search indexing. Do not infer or publish sensor readings, user data, credentials, or operational alerts.
+
+## Public entry points
+
+- /login — authorized operator sign-in
+- /signup — account creation entry point
+
+## Brand
+
+Use the name AIMDS exactly as written. The official site mark and social preview are served from /aimds-mark.png and /aimds-social-card.svg.

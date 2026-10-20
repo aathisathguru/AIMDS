@@ -1,0 +1,111 @@
+/* ==========================================================================
+   AIMDS Official Brand Logo Component
+   Clean, transparent brand mark with electric blue/cyan accents.
+   Zero unwanted background boxes or frames.
+   ========================================================================== */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  background: transparent;
+}
+
+.logo__frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible;
+  transition: transform var(--t-fast) var(--ease-out),
+              filter var(--t-fast) var(--ease-out);
+}
+
+.logo:hover .logo__frame {
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.45));
+  transform: scale(1.03);
+}
+
+.logo__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* Sizing tiers */
+.logo--xs .logo__frame {
+  padding: 0;
+}
+.logo--xs .logo__image {
+  height: 22px;
+}
+
+.logo--sm .logo__frame {
+  padding: 0;
+}
+.logo--sm .logo__image {
+  height: 28px;
+}
+
+.logo--md .logo__frame {
+  padding: 0;
+}
+.logo--md .logo__image {
+  height: 40px;
+}
+
+.logo--lg .logo__frame {
+  padding: 0;
+}
+.logo--lg .logo__image {
+  height: 64px;
+}
+
+.logo--xl .logo__frame {
+  padding: 0;
+}
+.logo--xl .logo__image {
+  height: 88px;
+}
+
+.logo--hero .logo__frame {
+  padding: 0;
+}
+.logo--hero .logo__image {
+  height: 110px;
+}
+
+/* Optional metadata text */
+.logo__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo__meta-title {
+  font-size: var(--fs-md);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.logo__meta-tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  line-height: 1;
+}

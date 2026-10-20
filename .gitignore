@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.venv/
+env/
+venv/
+
+# Build artifacts
+dist/
+build/
+*.pyc
+__pycache__/
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.local
+
+# System & Editor files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/

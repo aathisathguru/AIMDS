@@ -1,0 +1,121 @@
+.modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal__panel {
+  position: relative;
+  width: 100%;
+  max-height: 92dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-bottom: none;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.modal__grab {
+  width: 40px;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--border-strong);
+  margin: 10px auto 2px;
+  flex: none;
+}
+
+.modal__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.modal__title {
+  font-size: var(--fs-lg);
+  margin-top: 3px;
+}
+
+.modal__desc {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.modal__close {
+  margin: -4px -4px 0 0;
+}
+
+.modal__body {
+  padding: var(--sp-4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+.modal__foot {
+  display: flex;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  padding-bottom: calc(var(--sp-3) + var(--safe-b));
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  flex: none;
+  flex-wrap: wrap;
+}
+.modal__foot > * {
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+@media (min-width: 768px) {
+  .modal-root {
+    align-items: center;
+    padding: var(--sp-6);
+  }
+  .modal__panel {
+    border-radius: var(--r-xl);
+    border-bottom: 1px solid var(--border-2);
+    max-height: 86dvh;
+  }
+  .modal__panel--sm {
+    max-width: 420px;
+  }
+  .modal__panel--md {
+    max-width: 560px;
+  }
+  .modal__panel--lg {
+    max-width: 860px;
+  }
+  .modal__head {
+    padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  }
+  .modal__body {
+    padding: var(--sp-5);
+  }
+  .modal__foot {
+    padding: var(--sp-4) var(--sp-5);
+    justify-content: flex-end;
+  }
+  .modal__foot > * {
+    flex: 0 0 auto;
+  }
+}

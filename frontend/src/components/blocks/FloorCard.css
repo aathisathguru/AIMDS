@@ -1,0 +1,190 @@
+.fcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  height: 100%;
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: transform var(--t-med) var(--ease-out),
+    border-color var(--t-med) var(--ease-out), box-shadow var(--t-med) var(--ease-out);
+  text-decoration: none;
+}
+.fcard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3.5px;
+  background: var(--tone-c);
+  opacity: 0.6;
+  transition: opacity var(--t-med) var(--ease-out);
+}
+.fcard:hover,
+.fcard:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+  box-shadow: 0 6px 20px rgba(0, 195, 255, 0.12);
+}
+.fcard:hover::before {
+  opacity: 1;
+}
+.fcard:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+.fcard.tone-ok {
+  --tone-c: var(--st-ok);
+}
+.fcard.tone-warn {
+  --tone-c: var(--st-warn);
+}
+.fcard.tone-crit {
+  --tone-c: var(--st-crit);
+}
+.fcard.tone-idle {
+  --tone-c: var(--st-idle);
+}
+
+.fcard__head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.fcard__tag {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: var(--r-xs);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  font-size: var(--fs-micro);
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  color: var(--accent-ink);
+  flex: none;
+}
+
+.fcard__name {
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fcard__sub {
+  font-size: var(--fs-micro);
+  color: var(--text-dim);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.fcard__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0.65rem 0.6rem;
+  border-radius: var(--r-sm);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+}
+
+.fcard__metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fcard__uicon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.fcard__metric-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.fcard__label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.fcard__val {
+  font-size: var(--fs-xs);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.fcard__val strong {
+  font-weight: 700;
+}
+
+.fcard__val.cost-accent {
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.fcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--border);
+}
+
+.fcard__live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-tiny);
+  color: var(--text-dim);
+}
+
+.fcard__live-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--st-ok);
+  box-shadow: 0 0 6px var(--st-ok);
+}
+
+.fcard__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--accent-ink);
+  transition: gap var(--t-fast) var(--ease-out);
+}
+
+.fcard:hover .fcard__action {
+  gap: 8px;
+}
+
+.fcard__arrow {
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.fcard:hover .fcard__arrow {
+  transform: translateX(3px);
+}

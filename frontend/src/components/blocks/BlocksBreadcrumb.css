@@ -1,0 +1,62 @@
+.b-crumb-nav {
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-1);
+}
+
+.b-crumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-xs);
+}
+
+.b-crumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.b-crumb-sep {
+  color: var(--text-ghost);
+  flex-shrink: 0;
+}
+
+.b-crumb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-dim);
+  font-weight: 550;
+  transition: color var(--t-fast) var(--ease-out);
+  text-decoration: none;
+}
+
+.b-crumb-link:hover {
+  color: var(--accent-ink);
+}
+
+.b-crumb-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+  font-weight: 650;
+}
+
+.b-crumb-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.b-crumb-current .b-crumb-icon {
+  color: var(--accent-ink);
+}

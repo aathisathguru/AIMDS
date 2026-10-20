@@ -1,0 +1,242 @@
+.scard {
+  position: relative;
+  container-type: inline-size;
+  container-name: scard;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out), background-color var(--t-theme) var(--ease-out);
+}
+.scard:hover {
+  border-color: var(--border-2);
+}
+.scard.is-open {
+  border-color: var(--border-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.scard.tone-warn {
+  border-color: color-mix(in srgb, var(--st-warn) 26%, var(--border));
+}
+.scard.tone-crit {
+  border-color: color-mix(in srgb, var(--st-crit) 30%, var(--border));
+}
+
+.scard__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas: 'icon ident reading chev';
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 60px;
+  padding: 0.7rem 0.75rem 0.35rem;
+  text-align: left;
+}
+
+.scard__icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-xs);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  flex: none;
+}
+.scard.tone-warn .scard__icon {
+  background: var(--st-warn-soft);
+  color: var(--st-warn);
+  border-color: transparent;
+}
+.scard.tone-crit .scard__icon {
+  background: var(--st-crit-soft);
+  color: var(--st-crit);
+  border-color: transparent;
+}
+
+.scard__ident {
+  grid-area: ident;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.scard__type {
+  font-size: var(--fs-sm);
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.scard__id {
+  font-size: var(--fs-micro);
+  color: var(--text-ghost);
+  letter-spacing: 0.045em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scard__reading {
+  grid-area: reading;
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex: none;
+  min-width: 0;
+}
+@container scard (max-width: 399px) {
+  .scard__reading {
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+}
+.scard__value {
+  font-size: var(--fs-lg);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.scard__unit {
+  font-size: var(--fs-micro);
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.scard__status {
+  flex: none;
+}
+
+.scard__chev {
+  grid-area: chev;
+  color: var(--text-ghost);
+  flex: none;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.scard__meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 0.8rem 0.7rem;
+  font-size: var(--fs-tiny);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+/* ---------------- expanded panel ---------------- */
+.scard__panel {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.scard__panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+}
+
+.scard__spark .eyebrow {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.scard__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.scard__grid dt {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+}
+.scard__grid dd {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scard__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.scard__bar {
+  display: grid;
+  grid-template-columns: 76px 1fr 38px;
+  align-items: center;
+  gap: 0.5rem;
+}
+.scard__bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-micro);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+}
+.scard__bar-track {
+  height: 5px;
+  border-radius: 99px;
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.scard__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent);
+}
+.scard__bar-fill.is-blue {
+  background: var(--blue);
+}
+.scard__bar-val {
+  font-size: var(--fs-micro);
+  color: var(--text-faint);
+  text-align: right;
+}
+
+/* Cards sit in an auto-fill grid, so the header keys off the card's own
+   width rather than the viewport: below 400px the identity takes its own
+   line so the sensor type and id are never truncated. */
+@container scard (max-width: 399px) {
+  .scard__head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'icon ident chev'
+      'icon reading chev';
+    row-gap: 0.2rem;
+  }
+  .scard__meta {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .scard__head {
+    padding: 0.85rem 0.9rem 0.4rem;
+  }
+  .scard__meta {
+    padding: 0 0.95rem 0.8rem;
+  }
+  .scard__panel-inner {
+    padding: var(--sp-4);
+  }
+}

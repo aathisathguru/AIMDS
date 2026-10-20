@@ -1,0 +1,264 @@
+.acard {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out), background-color var(--t-theme) var(--ease-out);
+}
+.acard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--sev-c);
+  opacity: 0.65;
+}
+.acard:hover {
+  border-color: var(--border-2);
+}
+.acard.is-open {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-2);
+}
+
+.acard.tone-crit {
+  --sev-c: var(--st-crit);
+}
+.acard.tone-warn {
+  --sev-c: var(--st-warn);
+}
+.acard.tone-info {
+  --sev-c: var(--st-info);
+}
+.acard.tone-ok {
+  --sev-c: var(--st-ok);
+}
+.acard.tone-ok::before {
+  opacity: 0.4;
+}
+
+/* ---------------- head ---------------- */
+.acard__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    'icon main reading chev'
+    'icon time time time';
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  width: 100%;
+  padding: 0.8rem 0.8rem 0.8rem 0.95rem;
+  text-align: left;
+}
+
+.acard__icon {
+  grid-area: icon;
+  align-self: start;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-xs);
+  background: color-mix(in srgb, var(--sev-c) 14%, transparent);
+  color: var(--sev-c);
+  flex: none;
+}
+
+.acard__main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.acard__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.acard__sev {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: var(--sev-c);
+  background: color-mix(in srgb, var(--sev-c) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sev-c) 32%, transparent);
+}
+
+.acard__id {
+  font-size: 9px;
+  color: var(--text-ghost);
+  letter-spacing: 0.06em;
+}
+
+.acard__ack {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+}
+
+.acard__title {
+  font-size: var(--fs-sm);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.acard__where {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-micro);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.acard__reading {
+  grid-area: reading;
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  align-self: start;
+  flex: none;
+}
+.acard__value {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--sev-c);
+}
+.acard__unit {
+  font-size: 9px;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.acard__time {
+  grid-area: time;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-micro);
+  color: var(--text-ghost);
+}
+
+.acard__chev {
+  grid-area: chev;
+  align-self: start;
+  color: var(--text-ghost);
+  flex: none;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+/* ---------------- body ---------------- */
+.acard__body {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.acard__body-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-3) var(--sp-3) 0.95rem;
+}
+
+.acard__msg {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.acard__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  padding: 0.75rem;
+  border-radius: var(--r-sm);
+  background: var(--surface-inset);
+  border: 1px solid var(--border);
+}
+.acard__facts dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+}
+.acard__facts dd {
+  margin-top: 3px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-dim);
+  overflow-wrap: anywhere;
+}
+.acard__facts dd.sev-crit {
+  color: var(--st-crit);
+}
+.acard__facts dd.sev-warn {
+  color: var(--st-warn);
+}
+.acard__facts dd.sev-info {
+  color: var(--st-info);
+}
+.acard__facts dd.sev-ok {
+  color: var(--st-ok);
+}
+
+.acard__rec {
+  padding: 0.65rem 0.7rem;
+  border-radius: var(--r-sm);
+  background: var(--accent-softer);
+  border: 1px solid var(--accent-line);
+}
+.acard__rec p {
+  margin-top: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text);
+  line-height: 1.55;
+  font-weight: 550;
+}
+
+.acard__actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.acard__actions .btn {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 640px) {
+  .acard__head {
+    grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+    grid-template-areas: 'icon main reading time chev';
+    padding: 0.9rem 0.9rem 0.9rem 1.05rem;
+  }
+  .acard__time {
+    align-self: start;
+  }
+  .acard__facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .acard__actions .btn {
+    flex: 0 0 auto;
+  }
+  .acard__body-inner {
+    padding: var(--sp-4) var(--sp-4) var(--sp-4) 1.05rem;
+  }
+}

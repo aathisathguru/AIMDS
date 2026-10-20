@@ -1,0 +1,31 @@
+.hostel-modal__form {
+  padding-top: var(--sp-2);
+}
+
+.hostel-btn--purple {
+  background: var(--purple, #8b5cf6) !important;
+  border-color: var(--purple-line, rgba(139, 92, 246, 0.4)) !important;
+  color: #fff !important;
+}
+
+.hostel-btn--purple:hover:not(:disabled) {
+  background: #7c3aed !important;
+  box-shadow: 0 0 16px var(--purple-glow, rgba(139, 92, 246, 0.4)) !important;
+}
+
+.hostel-modal__note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--purple-soft, rgba(139, 92, 246, 0.12));
+  border: 1px solid var(--purple-line, rgba(139, 92, 246, 0.35));
+  border-radius: var(--r-sm);
+  font-size: var(--fs-xs);
+  color: var(--purple-ink, #a78bfa);
+}
+
+.hostel-modal__note-icon {
+  flex-shrink: 0;
+  color: var(--purple, #8b5cf6);
+}

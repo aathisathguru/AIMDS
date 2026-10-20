@@ -1,0 +1,18 @@
+{
+  "routes": [
+    { "path": "/", "title": "Operations dashboard | AIMDS" },
+    { "path": "/login", "title": "Sign in to AIMDS | Multi-Utility Monitoring" },
+    { "path": "/signup", "title": "Create an AIMDS account | Operations Console" },
+    { "path": "/blocks", "title": "Monitored blocks | AIMDS" },
+    { "path": "/blocks/:blockId", "title": "Block monitoring | AIMDS" },
+    { "path": "/blocks/:blockId/floors/:floorId", "title": "Floor monitoring | AIMDS" },
+    { "path": "/live", "title": "Live telemetry monitoring | AIMDS" },
+    { "path": "/sensors", "title": "Sensor registry | AIMDS" },
+    { "path": "/analytics", "title": "Utility analytics | AIMDS" },
+    { "path": "/insights", "title": "AI operational insights | AIMDS" },
+    { "path": "/alerts", "title": "Operational alerts | AIMDS" },
+    { "path": "/reports", "title": "Monitoring reports | AIMDS" },
+    { "path": "/settings", "title": "AIMDS settings | Operations console" },
+    { "path": "/more", "title": "AIMDS navigation | Operations console" }
+  ]
+}
